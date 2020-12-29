@@ -19,3 +19,4 @@ Azure SignalR Service simplifies the process of adding real-time web functionali
 
 
 ## PoC High Level Architecture
+[Install content authoring tools](https://github.com/gviscoli/PCH.Docs/blob/master/Weather%20Station%20POC/Images/WeatherStationHA.png)
