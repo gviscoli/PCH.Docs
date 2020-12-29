@@ -22,7 +22,7 @@ Azure SignalR Service simplifies the process of adding real-time web functionali
 ![System at Glance phases](Images/WeatherStationHA.png "PoC High Level Architecture")
 
 ### DHT-22 Sensor
-The DHT-22 (also named as AM2302) is a relative humidity/temperature sensor that outputs a digital signal. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
+The DHT22 (also named as AM2302) is a basic, low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
 
 The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagram below:
 
