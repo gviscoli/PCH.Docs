@@ -69,5 +69,43 @@ And after this is completed, we can install library that we need. Run thiscomman
 sudo pip3 install Adafruit_DHT
 ```
 
+Before writing my first script to test the **Adafruit_DHT library**, I also installed my favorite editor [Visual Studio Code](https://code.visualstudio.com/).
+
+After everything is installed, we can start writing a script. 
+
+Open Visual Studio Code editor in Raspberry Pi OS, and copy-paste the following python script
+
+```
+import Adafruit_DHT
+from time import sleep
+sensor = Adafruit_DHT.DHT22
+# DHT22 sensor connected to GPIO12.
+pin = 12
+print("[press ctrl+c to end the script]")
+try: # Main program loop
+while True:
+humidity, temperature = Adafruit_DHT.read_retry(sensor,
+pin)
+sleep(2.5)
+if humidity is not None and temperature is not None:
+print("Temp={0:0.1f}*C Humidity={1:0.1f}%"
+.format(temperature, humidity))
+else:
+print("Failed to get reading. Try again!")
+# Scavenging work after the end of the program
+except KeyboardInterrupt:
+print("Script end!")
+```
+
+Save this script as "DHT22.py" and to run it, run this command in terminal:
+
+```
+python3 DHT22.py
+```
+
+And the output should look like this:
+
+
+
 
 ### ...
