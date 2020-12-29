@@ -108,4 +108,10 @@ And the output should look like this:
 
 ![TestScript](Images/TestScript.png "Output test script")
 
-### ...
+Now that we have tested our hardware, we can move on to analyze the architecture of the PoC
+
+
+## Solution Architecture
+In the followig figure, I am showing the entire solution architecture of Weather Station PoC.
+
+To be continued...
