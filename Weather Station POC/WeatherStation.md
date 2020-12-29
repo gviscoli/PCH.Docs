@@ -19,5 +19,15 @@ Azure SignalR Service simplifies the process of adding real-time web functionali
 
 
 ## PoC High Level Architecture
-[!div class="mx-imgBorder"]
 ![System at Glance phases](Images/WeatherStationHA.png "PoC High Level Architecture")
+
+### DHT-22 Sensor
+The DHT-22 (also named as AM2302) is a relative humidity/temperature sensor that outputs a digital signal. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
+
+I bought the sensor on the following site [documentation](https://az-delivery.de)
+
+### Raspberry Pi 3 (model B)
+
+### Adafruit_DHT Library
+
+### ...
