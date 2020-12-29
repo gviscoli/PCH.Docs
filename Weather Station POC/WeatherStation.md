@@ -106,7 +106,6 @@ python3 DHT22.py
 
 And the output should look like this:
 
-
-
+![TestScript](Images/TestScript.png "Output test script")
 
 ### ...
