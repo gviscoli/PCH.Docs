@@ -38,6 +38,9 @@ In the followed picture my DHT-22 and Raspberry Pi:
 
 ![RaspberryAndDHT22](Images/RaspberryAndDHT22.png "Final result")
 
+I installed the **Raspberry Pi OS with desktop and recommended software** operating system  while keeping the basic configurations. Raspbian is a free operating system based on Debian optimized for the Raspberry Pi hardware.
+
+
 ### Adafruit_DHT Library
 
 ### ...
