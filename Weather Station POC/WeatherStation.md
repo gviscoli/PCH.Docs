@@ -48,22 +48,19 @@ terminal and run these commands:
 
 First command is for making the system up to date:
 
-####Inline code
-sudo apt-get update && sudo apt-get upgrade -y
+'''sudo apt-get update && sudo apt-get upgrade -y
 
 Second command is for installing python3-pip app. We will use pip app to install library:
 
-####Inline code
-sudo apt-get install python3-pip
+'''sudo apt-get install python3-pip
 
 Third command is for installing other apps that pip app uses during installation:
 
-####Inline code
-sudo python3 -m pip install --upgrade pip setuptools wheel
+'''sudo python3 -m pip install --upgrade pip setuptools wheel
 
 And after this is completed, we can install library that we need. Run thiscommand in terminal:
 
-sudo pip3 install Adafruit_DHT
+'''sudo pip3 install Adafruit_DHT
 
 
 ### ...
