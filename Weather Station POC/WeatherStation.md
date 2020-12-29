@@ -43,20 +43,25 @@ I installed the **Raspberry Pi OS with desktop and recommended software** operat
 Raspberry Pi OS is a free operating system based on Debian optimized for the Raspberry Pi hardware. For further information this is the [link](https://www.raspberrypi.org/software/operating-systems/) where you can fint the official documentation.
 
 ### Adafruit_DHT Library
-Before we start creating scripts for DHT22, we first have to install a library. The library we are going to use is called "Adafruit_DHT". To install it we first need to make sure Rasbian is up to date. Start your Raspberry Pi, open
-terminal and run these commands:
+Before we start creating scripts for DHT22, we first have to install a library. The library we are going to use is called "Adafruit_DHT". To install it we first need to make sure Rasbian is up to date. Start your Raspberry Pi, open terminal and run these commands:
 
 First command is for making the system up to date:
 
-```sudo apt-get update && sudo apt-get upgrade -y
+```
+sudo apt-get update && sudo apt-get upgrade -y
+'''
 
 Second command is for installing python3-pip app. We will use pip app to install library:
 
-```sudo apt-get install python3-pip```
+```
+sudo apt-get install python3-pip
+```
 
 Third command is for installing other apps that pip app uses during installation:
 
-'''sudo python3 -m pip install --upgrade pip setuptools wheel'''
+'''
+sudo python3 -m pip install --upgrade pip setuptools wheel
+'''
 
 And after this is completed, we can install library that we need. Run thiscommand in terminal:
 
