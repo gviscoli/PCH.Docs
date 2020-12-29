@@ -1,9 +1,9 @@
 # Weather Station Proof of Concept
-Welcome to the open-source [documentation](https://docs.microsoft.com/azure) of my proof of concept for implentation of a basic Weather Statio.
+Welcome to the open-source of my proof of concept for implentation of a basic Weather Station.
 
 
 ## Purpose
-The goal of this poc is to experiment with a series of cloud technologies such as Azure IoT Hub, Azure Function and Azure SignalR.
+The goal of this poc is to experiment with a series of cloud technologies such as **Azure IoT Hub**, **Azure Function** and **Azure SignalR**.
 
 
 ### Azure IoT Hub
@@ -18,8 +18,8 @@ Azure Functions is a serverless solution that allows you to write less code, mai
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
 
-## PoC High Level Architecture
-![PoC HLA](Images/WeatherStationHA.png "PoC High Level Architecture")
+## The Blueprint of Weather Station PoC
+![Blueprint PoC](Images/WeatherStationHA.png "Blueprint PoC")
 
 ### DHT-22 Sensor
 The DHT22 (also named as AM2302) is a basic, low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
@@ -43,7 +43,7 @@ I installed the **Raspberry Pi OS with desktop and recommended software** operat
 Raspberry Pi OS is a free operating system based on Debian optimized for the Raspberry Pi hardware. For further information this is the [link](https://www.raspberrypi.org/software/operating-systems/) where you can fint the official documentation.
 
 ### Adafruit_DHT Library
-Before we start creating scripts for DHT22, we first have to install a library. The library we are going to use is called "Adafruit_DHT". To install it we first need to make sure Rasbian is up to date. Start your Raspberry Pi, open terminal and run these commands:
+Before we start creating scripts for my PoC, we first have to install a library to test my sensor and my environment. The library we are going to use is called **Adafruit_DHT**. To install it we first need to make sure Rasbian is up to date. Start your Raspberry Pi, open terminal and run these commands:
 
 First command is for making the system up to date:
 
