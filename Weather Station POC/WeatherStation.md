@@ -38,10 +38,32 @@ In the followed picture my DHT-22 and Raspberry Pi:
 
 ![RaspberryAndDHT22](Images/RaspberryAndDHT22.png "Final result")
 
-I installed the **Raspberry Pi OS with desktop and recommended software** operating system  while keeping the basic configurations. Raspbian is a free operating system based on Debian optimized for the Raspberry Pi hardware.
+I installed the **Raspberry Pi OS with desktop and recommended software** operating system on Rasperry Pi 3. 
 
-[Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/) official documentation 
+Raspberry Pi OS is a free operating system based on Debian optimized for the Raspberry Pi hardware. For further information this is the [link](https://www.raspberrypi.org/software/operating-systems/) where you can fint the official documentation.
 
 ### Adafruit_DHT Library
+Before we start creating scripts for DHT22, we first have to install a library. The library we are going to use is called "Adafruit_DHT". To install it we first need to make sure Rasbian is up to date. Start your Raspberry Pi, open
+terminal and run these commands:
+
+First command is for making the system up to date:
+
+####Inline code
+sudo apt-get update && sudo apt-get upgrade -y
+
+Second command is for installing python3-pip app. We will use pip app to install library:
+
+####Inline code
+sudo apt-get install python3-pip
+
+Third command is for installing other apps that pip app uses during installation:
+
+####Inline code
+sudo python3 -m pip install --upgrade pip setuptools wheel
+
+And after this is completed, we can install library that we need. Run thiscommand in terminal:
+
+sudo pip3 install Adafruit_DHT
+
 
 ### ...
