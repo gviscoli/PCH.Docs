@@ -26,7 +26,7 @@ The DHT-22 (also named as AM2302) is a relative humidity/temperature sensor that
 
 The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagram below:
 
-![System at Glance phases](Images/Rasperry.png "Connecting the sensor with Rasperry Pi")
+![Raspberry](Images/Raspberry.png "Connecting the sensor with Rasperry Pi")
 
 
 I bought the sensor on the following site [link](https://az-delivery.de).
@@ -36,7 +36,7 @@ Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad 
 
 In the followed picture my DHT-22 and Raspberry Pi:
 
-![System at Glance phases](Images/RasperryAndDHT22.png "Final result")
+![RaspberryAndDHT22](Images/RaspberryAndDHT22.png "Final result")
 
 ### Adafruit_DHT Library
 
