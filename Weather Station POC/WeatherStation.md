@@ -19,7 +19,7 @@ Azure SignalR Service simplifies the process of adding real-time web functionali
 
 
 ## PoC High Level Architecture
-![System at Glance phases](Images/WeatherStationHA.png "PoC High Level Architecture")
+![PoC HLA](Images/WeatherStationHA.png "PoC High Level Architecture")
 
 ### DHT-22 Sensor
 The DHT22 (also named as AM2302) is a basic, low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
@@ -40,6 +40,7 @@ In the followed picture my DHT-22 and Raspberry Pi:
 
 I installed the **Raspberry Pi OS with desktop and recommended software** operating system  while keeping the basic configurations. Raspbian is a free operating system based on Debian optimized for the Raspberry Pi hardware.
 
+[Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/) official documentation 
 
 ### Adafruit_DHT Library
 
