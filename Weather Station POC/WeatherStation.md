@@ -49,7 +49,7 @@ First command is for making the system up to date:
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y
-'''
+```
 
 Second command is for installing python3-pip app. We will use pip app to install library:
 
@@ -59,13 +59,15 @@ sudo apt-get install python3-pip
 
 Third command is for installing other apps that pip app uses during installation:
 
-'''
+```
 sudo python3 -m pip install --upgrade pip setuptools wheel
-'''
+```
 
 And after this is completed, we can install library that we need. Run thiscommand in terminal:
 
-'''sudo pip3 install Adafruit_DHT'''
+```
+sudo pip3 install Adafruit_DHT
+```
 
 
 ### ...
