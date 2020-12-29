@@ -32,6 +32,11 @@ The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagra
 I bought the sensor on the following site [link](https://az-delivery.de).
 
 ### Raspberry Pi 3 (model B)
+Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad core ARM Cortex-A53 processor, on-board 802.11n Wi-Fi, Bluetooth and USB boot capabilities.
+
+In the followed picture my DHT-22 and Raspberry Pi:
+
+![System at Glance phases](Images/RasperryAndDHT22.png "Final result")
 
 ### Adafruit_DHT Library
 
