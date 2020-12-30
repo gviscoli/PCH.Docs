@@ -114,4 +114,6 @@ Now that we have tested our hardware, we can move on to analyze the architecture
 ## Solution Architecture
 In the followig figure, I am showing the entire solution architecture of Weather Station PoC.
 
+![High Level Architecture](Images/PCH.WeatherStationHLA.png "High Level Architecture")
+
 To be continued...
