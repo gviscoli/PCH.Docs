@@ -18,10 +18,22 @@ Azure Functions is a serverless solution that allows you to write less code, mai
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
 
-## The Blueprint of Weather Station PoC
+## Weather Station PoC
+Before starting the realization I defined which components should be the basis of the POC. To facilitate the decision I made a drawing of the final architecture:
+
+### Sketch
+In the followig figure, I am showing the sketch of Weather Station PoC.
+
 ![Blueprint PoC](Images/WeatherStationHA.png "Blueprint PoC")
 
-### DHT-22 Sensor
+then, I designed the high-level architecture and defined the detailed components:
+
+### Solution Architecture
+In the followig figure, I am showing the entire solution architecture of Weather Station PoC.
+
+![High Level Architecture](Images/PCH.WeatherStationHLA.png "High Level Architecture")
+
+#### DHT-22 Sensor
 The DHT22 (also named as AM2302) is a basic, low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
 
 The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagram below:
@@ -31,7 +43,7 @@ The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagra
 
 I bought the sensor on the following site [link](https://az-delivery.de).
 
-### Raspberry Pi 3 (model B)
+#### Raspberry Pi 3 (model B)
 Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad core ARM Cortex-A53 processor, on-board 802.11n Wi-Fi, Bluetooth and USB boot capabilities.
 
 In the followed picture my DHT-22 and Raspberry Pi:
@@ -41,6 +53,10 @@ In the followed picture my DHT-22 and Raspberry Pi:
 I installed the **Raspberry Pi OS with desktop and recommended software** operating system on Rasperry Pi 3. 
 
 Raspberry Pi OS is a free operating system based on Debian optimized for the Raspberry Pi hardware. For further information this is the [link](https://www.raspberrypi.org/software/operating-systems/) where you can fint the official documentation.
+
+
+## Implementation
+
 
 ### Adafruit_DHT Library
 Before we start creating scripts for my PoC, we first have to install a library to test my sensor and my environment. The library we are going to use is called **Adafruit_DHT**. To install it we first need to make sure Rasbian is up to date. Start your Raspberry Pi, open terminal and run these commands:
@@ -111,9 +127,6 @@ And the output should look like this:
 Now that we have tested our hardware, we can move on to analyze the architecture of the PoC
 
 
-## Solution Architecture
-In the followig figure, I am showing the entire solution architecture of Weather Station PoC.
 
-![High Level Architecture](Images/PCH.WeatherStationHLA.png "High Level Architecture")
 
 To be continued...
