@@ -47,11 +47,13 @@ With Raspbian being the official OS for the Raspberry Pi,  I think that is a bet
 #### DHT-22 Sensor
 The DHT22 (also named as AM2302) is a basic, low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
 
+![DHT22 Sensor](Images/DHT22.png "DHT22 Sensor")
+
+I bought the sensor on the following site [link](https://az-delivery.de).
+
 The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagram below:
 
 ![Raspberry](Images/Raspberry.png "Connecting the sensor with Rasperry Pi")
-
-I bought the sensor on the following site [link](https://az-delivery.de).
 
 
 #### Final Result
@@ -61,30 +63,34 @@ In the followed picture my DHT-22 and Raspberry Pi:
 
 
 ## Device and Sensor test
-
+I chose to use python for the development of the application on the device that will have to read the data from the sensor and send them to the Iot Hub.
 
 ### Adafruit_DHT Library
-Before we start creating scripts for my PoC, we first have to install a library to test my sensor and my environment. The library we are going to use is called **Adafruit_DHT**. To install it we first need to make sure Rasbian is up to date. Start your Raspberry Pi, open terminal and run these commands:
+As a starting point I used the **Adafruit_DHT** python library recommended by the sensor vendor. Before proceed, it we first need to make sure that Raspberry Pi OS is up to date and there are all software installed.
 
-First command is for making the system up to date:
+Before proceeding, we must first make sure that the Raspberry Pi operating system is up to date and that all software is installed. To do that, follow the steps below:
+
+1. Start your Raspberry Pi, open terminal and run these commands:
+
+2. First command is for making the system up to date:
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-Second command is for installing python3-pip app. We will use pip app to install library:
+3. Second command is for installing python3-pip app. We will use pip app to install library:
 
 ```
 sudo apt-get install python3-pip
 ```
 
-Third command is for installing other apps that pip app uses during installation:
+4. Third command is for installing other apps that pip app uses during installation:
 
 ```
 sudo python3 -m pip install --upgrade pip setuptools wheel
 ```
 
-And after this is completed, we can install library that we need. Run thiscommand in terminal:
+5. And after this is completed, we can install library that we need. Run thiscommand in terminal:
 
 ```
 sudo pip3 install Adafruit_DHT
@@ -92,9 +98,9 @@ sudo pip3 install Adafruit_DHT
 
 Before writing my first script to test the **Adafruit_DHT library**, I also installed my favorite editor [Visual Studio Code](https://code.visualstudio.com/).
 
-After everything is installed, we can start writing a script. 
+6. Install Visual Studio Code
 
-Open Visual Studio Code editor in Raspberry Pi OS, and copy-paste the following python script
+7. Open Visual Studio Code editor in Raspberry Pi OS, and copy-paste the following python script
 
 ```
 import Adafruit_DHT
@@ -119,7 +125,7 @@ except KeyboardInterrupt:
     print("Script end!")
 ```
 
-Save this script as **DHT22.py** and to run it, run this command in terminal:
+8. Save this script as **DHT22.py** and to run it, run this command in terminal:
 
 ```
 python3 DHT22.py
