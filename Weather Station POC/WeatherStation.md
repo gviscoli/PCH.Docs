@@ -55,13 +55,22 @@ The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagra
 
 ![Raspberry](Images/Raspberry.png "Connecting the sensor with Rasperry Pi")
 
-
 #### Final Result
 In the followed picture my DHT-22 and Raspberry Pi:
 
 ![RaspberryAndDHT22](Images/RaspberryAndDHT22.png "Final result")
 
+### Azure Components
+...
 
+### Simulator
+...
+
+### Client Applications
+...
+
+# Develop the solution
+...
 ## Device and Sensor test
 I chose to use python for the development of the application on the device that will have to read the data from the sensor and send them to the Iot Hub.
 
