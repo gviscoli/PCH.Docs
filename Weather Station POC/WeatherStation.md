@@ -73,9 +73,9 @@ In the followed picture my DHT-22 and Raspberry Pi:
 
 
 ### Azure Services
+In this section I will explain how to configure the Azure Services used for Weather Station PoC.
 
 #### Azure IoT HUB
-
 As previously mentioned azure Iot hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. For my PoC the Azure IoT Hub will act as collector of events sent from Raspberry Pi 3 device. Only for PoC I will configure one 
 
 Azure IoT Hub offers two tiers, **basic** and **standard**, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. 
@@ -100,21 +100,17 @@ After the device is created, I need to retrieve and to secure the **Primary Conn
 
 The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials, and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. 
 
-
-#### Azure Function
-In my scenario, the 
-
-...
-
 #### Azure SignalR
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates. 
 
-In my PoC scenario Azure SignalR will provide the real-time temperature andhumidity data to two different type of client applications.
+In my Weather Station PoC scenario, Azure SignalR will provide the real-time temperature and humidity data to two different type of client applications.
 
 - .Net Core Web Sample Application
 - .Net Code Console Sample Application
 
 I'll keep the sample client application as simple as possible because in this PoC the main focus is on integrating all the components of the architecture.
+
+SignalR Service works with a broad range of clients, such as web and mobile browsers, desktop apps, mobile apps, server process, IoT devices, and game consoles. SignalR Service offers SDKs in different languages. In addition to native ASP.NET Core or ASP.NET C# SDKs, SignalR Service also provides JavaScript client SDK, to enable web clients, and many JavaScript frameworks. Java client SDK is also supported for Java applications, including Android native apps.
 
 In the future, time permitting, it will be possible to extend the solution by adding other types of client applications (for example: Java, Python or .Net Framework)
 
@@ -124,7 +120,15 @@ To provision a new **SignalR Service** I used the following command:
 az signalr create -n %signalr% -g %resource_group_name% --service-mode Serverless --sku Free_F1
 ```
 
+SignalR Service is designed for large-scale real-time applications. SignalR Service allows multiple instances to work together to scale to millions of client connections. The service also supports multiple global regions for **sharding**, **high availability** or **disaster recovery** purposes.
+
+
+#### Azure Function
+In my scenario, the 
+
 ...
+
+
 
 ### Simulator
 ...
