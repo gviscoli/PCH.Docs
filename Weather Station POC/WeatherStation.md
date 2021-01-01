@@ -13,7 +13,12 @@ IoT Hub supports communications both from the device to the cloud and from the c
 
 
 ### Azure Function
+Azure Function is a serverless compute service that enables user to run event-triggered code without having to provision or manage infrastructure. Being as a trigger-based service, it runs a script or piece of code in response to a variety of events.
+
+Azure Functions can be used to achieve decoupling, high throughput, reusability and shared. Being more reliable, it can also be used for the production environments.
+
 Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date servers needed to keep your applications running.
+
 
 ### Azure SignalR
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
@@ -67,15 +72,17 @@ In the followed picture my DHT-22 and Raspberry Pi:
 ![RaspberryAndDHT22](Images/RaspberryAndDHT22.png "Final result")
 
 
-### Azure Components
+### Azure Services
 
 #### Azure IoT HUB
 
-As previously mentioned azure Iot hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. 
+As previously mentioned azure Iot hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. For my PoC the Azure IoT Hub will act as collector of events sent from Raspberry Pi 3 device. Only for PoC I will configure one 
 
 Azure IoT Hub offers two tiers, **basic** and **standard**, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. 
 
-IoT Hub also offers a **free tier** that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. For my PoC I chose the free tier option.
+Azure IoT Hub also offers a **free tier** that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. For my PoC I chose the free tier option.
+
+The free tier is intended for testing and evaluation. It allows **500 devices** to be connected to the hub and up to **8,000 messages per day**. Each Azure subscription can create one IoT hub in the free tier.
 
 To provision a new IoT Hub I used the following command:
 
@@ -85,8 +92,19 @@ az iot hub create --name %iot_hub_name% --resource-group %resource_group_name% -
 
 For more information on which tier is right for your solution this is an useful [link](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling?branch=release-iotbasic#basic-and-standard-tiers)
 
+When Azure ioT Hub was provisioned, I need to create a device identity in the identity registry in my IoT hub (a device cannot connect to a hub unless it has an entry in the identity registry).
+
+![Device Registered](Images/IoT.Device.png "Device Registered")
+
+After the device is created, I need to retrieve and to secure the **Primary Connection String** that will use to configure the Python IoT application.
+
+The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials, and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. 
+
+
 
 #### Azure Function
+In my scenario, the 
+
 
 ### Simulator
 ...
