@@ -126,6 +126,8 @@ Azure SignalR can be configurated in three different mode:
 - **Serverless mode** does NOT allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode.
 - **Classic mode** is a mixed status. When a hub has server connection, the new client will be routed to hub server, if not, client will enter serverless mode.
 
+For important information about perfomance as detailed [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling?branch=release-iotbasic#basic-and-standard-tiers)
+
 SignalR Service is designed for large-scale real-time applications. SignalR Service allows multiple instances to work together to scale to millions of client connections. The service also supports multiple global regions for **sharding**, **high availability** or **disaster recovery** purposes.
 
 
