@@ -84,7 +84,7 @@ Azure IoT Hub also offers a **free tier** that is meant for testing and evaluati
 
 The free tier is intended for testing and evaluation. It allows **500 devices** to be connected to the hub and up to **8,000 messages per day**. Each Azure subscription can create one IoT hub in the free tier.
 
-To provision a new IoT Hub I used the following command:
+To provision a new **IoT Hub** I used the following command:
 
 ```
 az iot hub create --name %iot_hub_name% --resource-group %resource_group_name% --sku F1 --partition-count 2 --location %location%
@@ -101,16 +101,37 @@ After the device is created, I need to retrieve and to secure the **Primary Conn
 The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials, and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. 
 
 
-
 #### Azure Function
 In my scenario, the 
 
+...
+
+#### Azure SignalR
+Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates. 
+
+In my PoC scenario Azure SignalR will provide the real-time temperature andhumidity data to two different type of client applications.
+
+- .Net Core Web Sample Application
+- .Net Code Console Sample Application
+
+I'll keep the sample client application as simple as possible because in this PoC the main focus is on integrating all the components of the architecture.
+
+In the future, time permitting, it will be possible to extend the solution by adding other types of client applications (for example: Java, Python or .Net Framework)
+
+To provision a new **SignalR Service** I used the following command:
+
+```
+az signalr create -n %signalr% -g %resource_group_name% --service-mode Serverless --sku Free_F1
+```
+
+...
 
 ### Simulator
 ...
 
 ### Client Applications
 ...
+
 
 # Develop the solution
 ...
