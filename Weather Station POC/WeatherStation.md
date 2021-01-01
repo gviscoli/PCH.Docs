@@ -120,11 +120,19 @@ To provision a new **SignalR Service** I used the following command:
 az signalr create -n %signalr% -g %resource_group_name% --service-mode Serverless --sku Free_F1
 ```
 
+Azure SignalR can be configurated in three different mode:
+
+- **Default mode** requires hub server. When there is no server connection available for the hub, the client tries to connect to this hub fails.
+- **Serverless mode** does NOT allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode.
+- **Classic mode** is a mixed status. When a hub has server connection, the new client will be routed to hub server, if not, client will enter serverless mode.
+
 SignalR Service is designed for large-scale real-time applications. SignalR Service allows multiple instances to work together to scale to millions of client connections. The service also supports multiple global regions for **sharding**, **high availability** or **disaster recovery** purposes.
 
 
 #### Azure Function
 In my scenario, the 
+
+https://docs.microsoft.com/et-ee/azure/azure-signalr/signalr-concept-azure-functions
 
 ...
 
