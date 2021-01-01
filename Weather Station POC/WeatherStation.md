@@ -11,6 +11,7 @@ IoT Hub is a managed service, hosted in the cloud, that acts as a central messag
 
 IoT Hub supports communications both from the device to the cloud and from the cloud to the device. IoT Hub supports multiple messaging patterns such as device-to-cloud telemetry, file upload from devices, and request-reply methods to control your devices from the cloud. IoT Hub monitoring helps you maintain the health of your solution by tracking events such as device creation, device failures, and device connections.
 
+
 ### Azure Function
 Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date servers needed to keep your applications running.
 
@@ -55,13 +56,31 @@ The DHT-22 sensor is attached to a Raspeberry Pi 3 as shown on connection diagra
 
 ![Raspberry](Images/Raspberry.png "Connecting the sensor with Rasperry Pi")
 
+
 #### Final Result
 In the followed picture my DHT-22 and Raspberry Pi:
 
 ![RaspberryAndDHT22](Images/RaspberryAndDHT22.png "Final result")
 
+The Raspberry Pi 3 device will send the temperature and humidity data retrieved from the sensor to Azure IoT Hub.
+
 ### Azure Components
-...
+
+#### Azure IoT HUB
+
+As previously mentioned azure Iot hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. 
+
+Azure IoT Hub offers two tiers, **basic** and s**tandard**, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. 
+
+IoT Hub also offers a **free tier** that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. For my PoC I chose the free tier option.
+
+To provision a new IoT Hub I used the following command:
+
+```
+az iot hub create --name %iot_hub_name% --resource-group %resource_group_name% --sku F1 --partition-count 2 --location %location%
+```
+
+#### Azure Function
 
 ### Simulator
 ...
@@ -72,7 +91,7 @@ In the followed picture my DHT-22 and Raspberry Pi:
 # Develop the solution
 ...
 ## Device and Sensor test
-I chose to use python for the development of the application on the device that will have to read the data from the sensor and send them to the Iot Hub.
+I chose to use python for the development of the application on the device that will have to read the data from the sensor and send them to the Iot Hub. 
 
 ### Adafruit_DHT Library
 As a starting point I used the **Adafruit_DHT** python library recommended by the sensor vendor. Before proceed, it we first need to make sure that Raspberry Pi OS is up to date and there are all software installed.
