@@ -36,7 +36,9 @@ In the followig figure, the entire solution architecture of Weather Station PoC 
 The main components on device side are:
 
 #### Raspberry Pi 3 (model B)
-For my experiment I reused an old Raspberry Pi 3 (model B) that I bought about a year ago. Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad core ARM Cortex-A53 processor, on-board 802.11n Wi-Fi, Bluetooth and USB boot capabilities.
+The **Raspberry Pi 3** will be responsible for sending the temperature and humidity data retrieved from the sensor to the Azure IoT Hub service. The Integration between device and Azure IoT Hub will be done with a Python program and with **Azure IoT Hub device SDK for Python** that will be described later.
+
+For my PoC I reused an old Raspberry Pi 3 (model B) that I bought about a year ago. Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad core ARM Cortex-A53 processor, on-board 802.11n Wi-Fi, Bluetooth and USB boot capabilities.
 
 I have also installed the **Raspberry Pi OS with desktop and recommended software** on Rasperry Pi 3. 
 
@@ -46,6 +48,8 @@ With Raspbian being the official OS for the Raspberry Pi,  I think that is a bet
 
 
 #### DHT-22 Sensor
+The **DHT22 Sensor** will be responsible for retrieving the temperature and humidity data from environment. The Integration between Sensor and the Rasperry device will be done through a program written in Python and by a Python Library named **Adafruit_DHT Library**.  The details about Python program and Python Library will be discussed later.
+
 The DHT22 (also named as AM2302) is a basic, low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
 
 ![DHT22 Sensor](Images/DHT22.png "DHT22 Sensor")
