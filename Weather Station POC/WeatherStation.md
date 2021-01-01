@@ -36,19 +36,19 @@ In the followig figure, the entire solution architecture of Weather Station PoC 
 The main components on device side are:
 
 #### Raspberry Pi 3 (model B)
-The **Raspberry Pi 3** will be responsible for sending the temperature and humidity data retrieved from the sensor to the Azure IoT Hub service. The Integration between device and Azure IoT Hub will be done with a Python program and with **Azure IoT Hub device SDK for Python** that will be described later.
+The **Raspberry Pi 3** will be responsible for sending the temperature and humidity data retrieved from the sensor to the Azure IoT Hub service. The Integration between device and Azure IoT Hub will be done with a **IoT application** written in Python and with **Azure IoT Hub device SDK for Python** that will be described later.
 
 For my PoC I reused an old Raspberry Pi 3 (model B) that I bought about a year ago. Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad core ARM Cortex-A53 processor, on-board 802.11n Wi-Fi, Bluetooth and USB boot capabilities.
 
 I have also installed the **Raspberry Pi OS with desktop and recommended software** on Rasperry Pi 3. 
 
-Raspberry Pi OS is a free operating system based on Debian optimized for the Raspberry Pi hardware. For further information this is the [link](https://www.raspberrypi.org/software/operating-systems/) where you can fint the official documentation.
+Raspberry Pi OS is a free operating system based on Debian optimized for the Raspberry Pi hardware. For further information this is the [link](https://www.raspberrypi.org/software/operating-systems/) where you can find the official documentation.
 
 With Raspbian being the official OS for the Raspberry Pi,  I think that is a better choice for new users to start with due to it being so widely adopted and there are tons of examples and guidelines.
 
 
 #### DHT-22 Sensor
-The **DHT22 Sensor** will be responsible for retrieving the temperature and humidity data from environment. The Integration between Sensor and the Rasperry device will be done through a program written in Python and by a Python Library named **Adafruit_DHT Library**.  The details about Python program and Python Library will be discussed later.
+The **DHT22 Sensor** will be responsible for retrieving the temperature and humidity data from environment. The Integration between Sensor and the Rasperry device will be done through a Python Library named **Adafruit_DHT Library**.  The details about Python Library will be discussed later.
 
 The DHT22 (also named as AM2302) is a basic, low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). It uses a capacitive humidity sensor and a thermistor to measure the surrounding air. Temperature measuring range of the DHT22 is from -40°C to +125°C with ±0.5 degrees accuracy, and humidity measuring range, from 0% to 100% with accuracy from 2% to 5%.
 
@@ -66,7 +66,6 @@ In the followed picture my DHT-22 and Raspberry Pi:
 
 ![RaspberryAndDHT22](Images/RaspberryAndDHT22.png "Final result")
 
-The Raspberry Pi 3 device will send the temperature and humidity data retrieved from the sensor to Azure IoT Hub.
 
 ### Azure Components
 
@@ -74,7 +73,7 @@ The Raspberry Pi 3 device will send the temperature and humidity data retrieved 
 
 As previously mentioned azure Iot hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. 
 
-Azure IoT Hub offers two tiers, **basic** and s**tandard**, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. 
+Azure IoT Hub offers two tiers, **basic** and **standard**, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. 
 
 IoT Hub also offers a **free tier** that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. For my PoC I chose the free tier option.
 
@@ -83,6 +82,9 @@ To provision a new IoT Hub I used the following command:
 ```
 az iot hub create --name %iot_hub_name% --resource-group %resource_group_name% --sku F1 --partition-count 2 --location %location%
 ```
+
+For more information on which tier is right for your solution this is an useful [link](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling?branch=release-iotbasic#basic-and-standard-tiers)
+
 
 #### Azure Function
 
