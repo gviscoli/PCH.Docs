@@ -111,7 +111,14 @@ I'll keep the sample client application as simple as possible because in this Po
 
 SignalR Service works with a broad range of clients, such as web and mobile browsers, desktop apps, mobile apps, server process, IoT devices, and game consoles. SignalR Service offers SDKs in different languages. In addition to native ASP.NET Core or ASP.NET C# SDKs, SignalR Service also provides JavaScript client SDK, to enable web clients, and many JavaScript frameworks. Java client SDK is also supported for Java applications, including Android native apps.
 
-In the future, time permitting, it will be possible to extend the Weather Station PoC by adding other types of client applications (for example: Java, Python or .Net Framework)
+In the future, time permitting, it will be possible to extend the Weather Station PoC by adding other types of client applications (for example: Java, Python or .Net Framework).
+
+Azure SignalR Service also offers a **free tier** that is meant for testing and evaluation:
+- Concurrent Connections per Unit	20
+- Messages / Unit / Day	20,000
+- Max Units	1
+
+**Note:** Changing SignalR Service from Free tier to Standard tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. 
 
 To provision a new **SignalR Service** I used the following command:
 
@@ -152,6 +159,7 @@ A serverless real-time application built with Azure Functions and Azure SignalR 
 
 To relay messages from IoT Hub to Azure SignalR Service I configured **"NewTemperatureEvent" function** with the **IoTHubTrigger** (which can be used with IoT Hub's built-in Event Hubs compatible endpoint). When a message is received from IoT Hub, Azure Functions does all the work for us and will execute our code and use the SignalR output binding to send messages to clients connected to Azure SignalR Service. You can broadcast messages to all clients, or you can send them to a subset of clients that are authenticated with a specific user ID or have been added to a specific group. Azure SignalR is a managed real-time messaging service in Azure that does this really well. We can integrate it with Azure Functions using an output binding.
 
+Azure Functions consumption plan is billed based on per-second resource consumption and executions. Consumption plan pricing includes a **monthly free** grant of **1 million requests** and **400,000 GB-s** of resource consumption per month per subscription in pay-as-you-go pricing across all function apps in that subscription. 
 
 ### Simulator
 ...
