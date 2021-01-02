@@ -107,11 +107,11 @@ In my Weather Station PoC scenario, Azure SignalR will provide the real-time tem
 - .Net Core Web Sample Application
 - .Net Code Console Sample Application
 
-I'll keep the sample client application as simple as possible because in this PoC the main focus is on integrating all the components of the architecture.
+I'll keep the sample client application as simple as possible because in this PoC the main focus is the integration of all the components of the architecture shown above.
 
 SignalR Service works with a broad range of clients, such as web and mobile browsers, desktop apps, mobile apps, server process, IoT devices, and game consoles. SignalR Service offers SDKs in different languages. In addition to native ASP.NET Core or ASP.NET C# SDKs, SignalR Service also provides JavaScript client SDK, to enable web clients, and many JavaScript frameworks. Java client SDK is also supported for Java applications, including Android native apps.
 
-In the future, time permitting, it will be possible to extend the solution by adding other types of client applications (for example: Java, Python or .Net Framework)
+In the future, time permitting, it will be possible to extend the Weather Station PoC by adding other types of client applications (for example: Java, Python or .Net Framework)
 
 To provision a new **SignalR Service** I used the following command:
 
@@ -130,15 +130,15 @@ Service mode is an important concept in Azure SignalR Service. When you create a
 
 - **Classic mode** is a mixed mode of default and serverless mode. In this mode, connection mode is decided by whether there is hub server connected when client connection is established. If there is hub server, client connection will be routed to a hub server. Otherwise it will enter a serverless mode where client to server message cannot be delivered to hub server. This will cause some discrepancies, for example if all hub servers are unavailable for a short time, all client connections created during that time will be in serverless mode and cannot send messages to hub server. ***Classic mode is mainly for backward compatibility for those applications created before there is default and serverless mode. It's strongly recommended to not use this mode anymore***.
 
-In my Weather Station PoC I choice to configure my Azure SignalR service in **Serverless Mode** because Azure SignalR Service, when used with **Azure Functions**, must be configured in Serverless mode.
-
-For important information about perfomance as detailed [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling?branch=release-iotbasic#basic-and-standard-tiers)
+**Note:** Since the azure signalr service must be integrated with an azure function it will be configured in **Serverless Mode**
 
 SignalR Service is designed for large-scale real-time applications. SignalR Service allows multiple instances to work together to scale to millions of client connections. The service also supports multiple global regions for **sharding**, **high availability** or **disaster recovery** purposes.
 
+Important information about perfomance as detailed [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling?branch=release-iotbasic#basic-and-standard-tiers)
+
 
 #### Azure Function
-In my Weather Station PoC, the Azure Function relay messages from Azure IoT Hub to Azure SignalR Service. Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a serverless environment.
+In my Weather Station PoC, the Azure Function relay messages from Azure IoT Hub to Azure SignalR Service. Because **Azure SignalR Service** and **Azure Functions** are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a serverless environment.
 
 A serverless real-time application built with Azure Functions and Azure SignalR Service typically requires two Azure Functions:
 
@@ -161,7 +161,8 @@ To relay messages from IoT Hub to Azure SignalR Service I configured **"NewTempe
 
 
 # Develop the solution
-...
+This section will provide implementation details relating to the development of the main components of the PoC. We will start from the development of the IoT application on the Raspberry device.
+
 ## Device and Sensor test
 I chose to use python for the development of the application on the device that will have to read the data from the sensor and send them to the Iot Hub. 
 
