@@ -143,18 +143,14 @@ In my Weather Station PoC, the Azure Function relay messages from Azure IoT Hub 
 A serverless real-time application built with Azure Functions and Azure SignalR Service typically requires two Azure Functions:
 
 - **negotiate function** that the client calls to obtain a valid SignalR Service access token and service endpoint URL
-One or more functions that handle messages from SignalR Service and send messages or manage group membership
 
 ![Azure Function Negotiate](Images/AzureFunction.Negotiate.png "Azure Function Negotiate")
 
-- **function** With the Event Hubs trigger (which can be used with IoT Hub's built-in Event Hubs compatible endpoint), Azure Functions does all the work for us and will execute our Python code whenever a message appears in IoT Hub.
+- **One or more functions** that handle messages from SignalR Service and send messages or manage group membership.
 
 ![Azure Function Relay Messages](Images/AzureFunction.RelayMessages.png "Azure Function Relay Messages")
 
-https://docs.microsoft.com/et-ee/azure/azure-signalr/signalr-concept-azure-functions
-
-...
-
+To relay messages from IoT Hub to Azure SignalR Service I configured **"NewTemperatureEvent" function** with the **IoTHubTrigger** (which can be used with IoT Hub's built-in Event Hubs compatible endpoint). When a message is received from IoT Hub, Azure Functions does all the work for us and will execute our code and use the SignalR output binding to send messages to clients connected to Azure SignalR Service. You can broadcast messages to all clients, or you can send them to a subset of clients that are authenticated with a specific user ID or have been added to a specific group. Azure SignalR is a managed real-time messaging service in Azure that does this really well. We can integrate it with Azure Functions using an output binding.
 
 
 ### Simulator
