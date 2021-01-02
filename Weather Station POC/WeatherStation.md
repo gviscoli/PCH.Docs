@@ -31,7 +31,6 @@ In the followig figure, I am showing the sketch of Weather Station PoC.
 
 ![Blueprint PoC](Images/WeatherStation2.png "Blueprint PoC")
 
-
 ## Solution Architecture
 In the followig figure, the entire solution architecture of Weather Station PoC and the its main components are shown:
 
@@ -119,12 +118,19 @@ To provision a new **SignalR Service** I used the following command:
 ```
 az signalr create -n %signalr% -g %resource_group_name% --service-mode Serverless --sku Free_F1
 ```
+Service mode is an important concept in Azure SignalR Service. When you create a new SignalR resource, you will be asked to specify a service mode:
 
-Azure SignalR can be configurated in three different mode:
+- **Default mode** requires hub server. When there is no server connection available for the hub, the client tries to connect to this hub fails. Default mode is the default value for service mode when you create a new SignalR resource. In this mode, your application works as a typical ASP.NET Core (or ASP.NET) SignalR application, where you have a web server that hosts a hub (called hub server hereinafter) and clients can have duplex real-time communication with the hub server. The only difference is instead of connecting client and server directly, client and server both connect to SignalR service and use the service as a proxy. Below is a diagram that illustrates the typical application structure in default mode
 
-- **Default mode** requires hub server. When there is no server connection available for the hub, the client tries to connect to this hub fails.
-- **Serverless mode** does NOT allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode.
+![SignalR Defaul Mode](Images/SignalRDefaultMode.png "SignalR Default Mode")
+
+- **Serverless mode** does NOT allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode. Serverless mode, as its name implies, is a mode that you cannot have any hub server. Comparing to default mode, in this mode client doesn't require hub server to get connected. All connections are connected to service in a "serverless" mode and service is responsible for maintaining client connections like handling client pings (in default mode this is handled by hub servers).
+
+![SignalR Serverless Mode](Images/SignalRServerlessMode.png "SignalR Serverless Mode")
+
 - **Classic mode** is a mixed status. When a hub has server connection, the new client will be routed to hub server, if not, client will enter serverless mode.
+
+In my Weather Station PoC I choice to configure my Azure SignalR service in **Serverless Mode**.
 
 For important information about perfomance as detailed [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling?branch=release-iotbasic#basic-and-standard-tiers)
 
