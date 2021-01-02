@@ -124,13 +124,13 @@ Service mode is an important concept in Azure SignalR Service. When you create a
 
 ![SignalR Defaul Mode](Images/SignalRDefaultMode.png "SignalR Default Mode")
 
-- **Serverless mode** does NOT allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode. Serverless mode, as its name implies, is a mode that you cannot have any hub server. Comparing to default mode, in this mode client doesn't require hub server to get connected. All connections are connected to service in a "serverless" mode and service is responsible for maintaining client connections like handling client pings (in default mode this is handled by hub servers).
+- **Serverless mode** does NOT allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode. Serverless mode, as its name implies, is a mode that you cannot have any hub server. Comparing to default mode, in this mode client doesn't require hub server to get connected. All connections are connected to service in a "serverless" mode and service is responsible for maintaining client connections like handling client pings (in default mode this is handled by hub servers). Also there is no server connection in this mode (if you try to use service SDK to establish server connection, you will get an error). Therefore there is also no connection routing and server-client stickiness (as described in the default mode section). But you can still have server-side application to push messages to clients. This can be done in two ways, use REST APIs for one-time send, or through a websocket connection so that you can send multiple messages more efficiently (note this websocket connection is different than server connection).
 
 ![SignalR Serverless Mode](Images/SignalRServerlessMode.png "SignalR Serverless Mode")
 
-- **Classic mode** is a mixed status. When a hub has server connection, the new client will be routed to hub server, if not, client will enter serverless mode.
+- **Classic mode** is a mixed mode of default and serverless mode. In this mode, connection mode is decided by whether there is hub server connected when client connection is established. If there is hub server, client connection will be routed to a hub server. Otherwise it will enter a serverless mode where client to server message cannot be delivered to hub server. This will cause some discrepancies, for example if all hub servers are unavailable for a short time, all client connections created during that time will be in serverless mode and cannot send messages to hub server. ***Classic mode is mainly for backward compatibility for those applications created before there is default and serverless mode. It's strongly recommended to not use this mode anymore***.
 
-In my Weather Station PoC I choice to configure my Azure SignalR service in **Serverless Mode**.
+In my Weather Station PoC I choice to configure my Azure SignalR service in **Serverless Mode** because Azure SignalR Service, when used with **Azure Functions**, must be configured in Serverless mode.
 
 For important information about perfomance as detailed [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling?branch=release-iotbasic#basic-and-standard-tiers)
 
@@ -138,7 +138,18 @@ SignalR Service is designed for large-scale real-time applications. SignalR Serv
 
 
 #### Azure Function
-In my scenario, the 
+In my Weather Station PoC, the Azure Function relay messages from Azure IoT Hub to Azure SignalR Service. Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a serverless environment.
+
+A serverless real-time application built with Azure Functions and Azure SignalR Service typically requires two Azure Functions:
+
+- **negotiate function** that the client calls to obtain a valid SignalR Service access token and service endpoint URL
+One or more functions that handle messages from SignalR Service and send messages or manage group membership
+
+![Azure Function Negotiate](Images/AzureFunction.Negotiate.png "Azure Function Negotiate")
+
+- **function** With the Event Hubs trigger (which can be used with IoT Hub's built-in Event Hubs compatible endpoint), Azure Functions does all the work for us and will execute our Python code whenever a message appears in IoT Hub.
+
+![Azure Function Relay Messages](Images/AzureFunction.RelayMessages.png "Azure Function Relay Messages")
 
 https://docs.microsoft.com/et-ee/azure/azure-signalr/signalr-concept-azure-functions
 
