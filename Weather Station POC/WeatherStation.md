@@ -29,7 +29,7 @@ Before starting the realization I defined which components should be the basis o
 
 In the followig figure, I am showing the sketch of Weather Station PoC.
 
-![Blueprint PoC](Images/WeatherStationHA.png "Blueprint PoC")
+![Blueprint PoC](Images/WeatherStation2.png "Blueprint PoC")
 
 
 ## Solution Architecture
