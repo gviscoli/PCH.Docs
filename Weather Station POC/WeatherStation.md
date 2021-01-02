@@ -1,10 +1,10 @@
 # Weather Station Proof of Concept
-Welcome to the open-source of my proof of concept for implentation of a basic Weather Station.
-
+This article explains the architecture of the PoC that I created for the realization of a first prototype of a home **Weather Station**.
 
 ## Purpose
-The goal of this poc is to experiment with a series of cloud technologies such as **Azure IoT Hub**, **Azure Function** and **Azure SignalR**.
+The goal of the PoC is to familiarize yourself with the **Azure Internet of Things (IoT)** and to experiment with a series of cloud technologies such as **Azure IoT Hub**, **Azure Function** and **Azure SignalR**.
 
+For reference you can find useful information about the Azure IoT offer [here](https://docs.microsoft.com/en-us/azure/iot-fundamentals/)
 
 ### Azure IoT Hub
 IoT Hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and secure communications between millions of IoT devices and a cloud-hosted solution backend. You can connect virtually any device to IoT Hub.
