@@ -186,10 +186,10 @@ The second program is a .Net Core Web Application that shows data sent by DHT22 
 
 ![Web Client](Images/WebClient.png "Web Client")
 
-In these cases the previous images show simulted data.
+**Note:** In these cases the previous images show simulted data.
 
 
-# Develop the solution
+# Develop the solution on Device Side
 This section will provide implementation details relating to the development of the main components of the PoC. We will start from the development of the IoT application on the Raspberry device.
 
 ## Device and Sensor test
@@ -265,9 +265,5 @@ And the output should look like this:
 
 ![TestScript](Images/TestScript.png "Output test script")
 
-Now that we have tested our hardware, we can move on to analyze the architecture of the PoC
 
-
-
-
-To be continued...
+{End}
