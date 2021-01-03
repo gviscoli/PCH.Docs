@@ -1,10 +1,12 @@
 # Weather Station Proof of Concept
 This article explains the architecture of the PoC that I created for the realization of a first prototype of a home **Weather Station**.
 
+
 ## Purpose
 The goal of the PoC is to familiarize yourself with the **Azure Internet of Things (IoT)** and to experiment with a series of cloud technologies such as **Azure IoT Hub**, **Azure Function** and **Azure SignalR**.
 
 For reference you can find useful information about the Azure IoT offer [here](https://docs.microsoft.com/en-us/azure/iot-fundamentals/).
+
 
 ### Azure IoT Hub
 Azure IoT Hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and secure communications between millions of IoT devices and a cloud-hosted solution backend. You can connect virtually any device to IoT Hub.
@@ -32,12 +34,13 @@ In the followig figure, I am showing the sketch of Weather Station PoC.
 ![Blueprint PoC](Images/WeatherStation2.png "Blueprint PoC")
 
 ## Solution Architecture
-In the followig figure, the entire solution architecture of Weather Station PoC and the its main components are shown:
+The followig figure shows the entire solution architecture of Weather Station PoC and the its main components:
 
 ![High Level Architecture](Images/PCH.WeatherStationHLA.png "High Level Architecture")
 
 ### Device
 The main components on device side are:
+
 
 #### Raspberry Pi 3 (model B)
 The **Raspberry Pi 3** will be responsible for sending the temperature and humidity data retrieved from the sensor to the Azure IoT Hub service. The Integration between device and Azure IoT Hub will be done with a **IoT application** written in Python and with **Azure IoT Hub device SDK for Python** that will be described later.
@@ -74,6 +77,7 @@ In the followed picture my DHT-22 and Raspberry Pi:
 ### Azure Services
 In this section I will explain how to configure the Azure Services used for Weather Station PoC.
 
+
 #### Azure IoT HUB
 As previously mentioned azure Iot hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. For my PoC the Azure IoT Hub will act as collector of events sent from Raspberry Pi 3 device. Only for PoC I will configure one 
 
@@ -99,6 +103,7 @@ After the device is created, I need to retrieve and to secure the **Primary Conn
 
 The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials, and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. 
 
+
 #### Azure SignalR
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates. 
 
@@ -110,8 +115,6 @@ In my Weather Station PoC scenario, Azure SignalR will provide the real-time tem
 I'll keep the sample client application as simple as possible because in this PoC the main focus is the integration of all the components of the architecture shown above.
 
 SignalR Service works with a broad range of clients, such as web and mobile browsers, desktop apps, mobile apps, server process, IoT devices, and game consoles. SignalR Service offers SDKs in different languages. In addition to native ASP.NET Core or ASP.NET C# SDKs, SignalR Service also provides JavaScript client SDK, to enable web clients, and many JavaScript frameworks. Java client SDK is also supported for Java applications, including Android native apps.
-
-In the future, time permitting, it will be possible to extend the Weather Station PoC by adding other types of client applications (for example: Java, Python or .Net Framework).
 
 Azure SignalR Service also offers a **free tier** that is meant for testing and evaluation:
 - Concurrent Connections per Unit	20
