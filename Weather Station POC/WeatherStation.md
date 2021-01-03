@@ -167,6 +167,10 @@ Azure Functions consumption plan is billed based on per-second resource consumpt
 ### Simulator
 It is a simple console application written in .Net Core that allows me to send messages to the Azure IoT Hub service and simulate the behavior of the Raspberry Pi 3 temperature / humidity sensor.
 
+In the followed figure an example of simulator application in action:
+
+![Simulator](Images/Simulator.png "Simulator")
+
 ### Client Applications
 Just for the purpose of evaluating the end to end integration, I have developed two client applications that visualize the messages sent by the devices in real time.
 
@@ -176,11 +180,11 @@ All client applications share the following class:
 
 The first program is a .Net Core console application and its responsibility is to show all the events sent by the sensor.
 
-[Immagine]
+![Console Client](Images/ConsoleClient.png "Console Client")
 
 The second program is a .Net Core Web Application and its responsability is also to show all the events sent by the sensor
 
-[Immagine]
+![Web Client](Images/WebClient.png "Web Client")
 
 
 # Develop the solution
