@@ -162,10 +162,22 @@ To relay messages from IoT Hub to Azure SignalR Service I configured **"NewTempe
 Azure Functions consumption plan is billed based on per-second resource consumption and executions. Consumption plan pricing includes a **monthly free** grant of **1 million requests** and **400,000 GB-s** of resource consumption per month per subscription in pay-as-you-go pricing across all function apps in that subscription. 
 
 ### Simulator
-...
+It is a simple console application written in .Net Core that allows me to send messages to the Azure IoT Hub service and simulate the behavior of the Raspberry Pi 3 temperature / humidity sensor.
 
 ### Client Applications
-...
+Just for the purpose of evaluating the end to end integration, I have developed two client applications that visualize the messages sent by the devices in real time.
+
+All client applications share the following class:
+
+![Weather Class](Images/WeatherClass.png "Weather Class")
+
+The first program is a .Net Core console application and its responsibility is to show all the events sent by the sensor.
+
+[Immagine]
+
+The second program is a .Net Core Web Application and its responsability is also to show all the events sent by the sensor
+
+[Immagine]
 
 
 # Develop the solution
