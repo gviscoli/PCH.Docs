@@ -178,13 +178,15 @@ All client applications share the following class:
 
 ![Weather Class](Images/WeatherClass.png "Weather Class")
 
-The first program is a .Net Core console application and its responsibility is to show all the events sent by the sensor.
+The first program is a .Net Core Console Application that shows data sent by DHT22 Sensor/Rasperry and by simulator. 
 
 ![Console Client](Images/ConsoleClient.png "Console Client")
 
-The second program is a .Net Core Web Application and its responsability is also to show all the events sent by the sensor
+The second program is a .Net Core Web Application that shows data sent by DHT22 Sensor/Rasperry and by simulator.
 
 ![Web Client](Images/WebClient.png "Web Client")
+
+In these cases the previous images show simulted data.
 
 
 # Develop the solution
