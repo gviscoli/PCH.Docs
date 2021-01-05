@@ -1,26 +1,28 @@
 # Introduction
 The Internet of Things (IoT) is transforming the way people live and work. Beyond just the smart devices you use every day, IoT is revolutionizing the way companies do business allowing them to become faster, smarter, safer, and more efficient.
 
+The Internet of Things (IoT) is perhaps the strongest possible expression of how the world is transforming from mechanical to digital. By digitally sensing the physical world, IoT transforms material things into **streams of data**, allowing people to nteract with them in entirely new ways and accelerate the innovation. Edge computing augments IoT by enhancing our ability to analyze IoT data and act on it in **real time**.
+
 Two out of three organizations are planning to use IoT even more in the next two years than they do today ([source](https://azure.microsoft.com/en-us/resources/iot-signals/)). As the IoT market matures, computing capabilities are increasingly being positioned at the edge. This brings processing and analysis power closer to connected data-generating devices and their users rather than handling data exclusively in the cloud or at remote data centers. Estimates show that by 2025, 75 percent of enterprise-generated data will be created and processed at the edge, up from less than 20 percent today.
+
+It is clear that over the next decade, emerging technologies will mature and proliferate, ranging from 5G to advances in **Artificial Intelligence (AI)**, **Edge computing**, **Internet of Things**, **Digital Twins** and others. They will enable large-scale shifts in our economy and transform entire industries.
 
 
 # Weather Station Proof of Concept
-This article explains the architecture of the PoC that I created for the realization of a first prototype of a home **Weather Station**.
+For purely didactic and experimental purposes, I decided to create a **IoT PoC** for a **Home Weather Station** by reusing a series of devices that had been gathering dust in my studio for too long. 
 
-
-## Purpose
-The goal of the PoC is to familiarize yourself with the **Azure Internet of Things (IoT)** and to experiment with a series of cloud technologies such as **Azure IoT Hub**, **Azure Function** and **Azure SignalR**.
+The goal of the PoC is to familiarize yourself with the **Azure Internet of Things (IoT)** and to experiment with a series of cloud technologies such as **Azure IoT Hub**, **Azure Function** and **Azure SignalR**. Also, as mentioned above, in the future, I could be extend the PoC using emerging technologies like edge computing, artificial intelligence and digital twins.
 
 For reference you can find useful information about the Azure IoT offer [here](https://docs.microsoft.com/en-us/azure/iot-fundamentals/).
 
 
-### Azure IoT Hub
+## Azure IoT Hub
 Azure IoT Hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and secure communications between millions of IoT devices and a cloud-hosted solution backend. You can connect virtually any device to IoT Hub.
 
 IoT Hub supports communications both from the device to the cloud and from the cloud to the device. IoT Hub supports multiple messaging patterns such as device-to-cloud telemetry, file upload from devices, and request-reply methods to control your devices from the cloud. IoT Hub monitoring helps you maintain the health of your solution by tracking events such as device creation, device failures, and device connections.
 
 
-### Azure Function
+## Azure Function
 Azure Function is a serverless compute service that enables user to run event-triggered code without having to provision or manage infrastructure. Being as a trigger-based service, it runs a script or piece of code in response to a variety of events.
 
 Azure Functions can be used to achieve decoupling, high throughput, reusability and shared. Being more reliable, it can also be used for the production environments.
@@ -28,7 +30,7 @@ Azure Functions can be used to achieve decoupling, high throughput, reusability 
 Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date servers needed to keep your applications running.
 
 
-### Azure SignalR
+## Azure SignalR
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
 
@@ -190,10 +192,9 @@ The first program is a .Net Core Console Application that shows data sent by DHT
 
 The second program is a .Net Core Web Application that shows data sent by DHT22 Sensor/Rasperry and by simulator.
 
-![Web Client](Images/WebClient.png "Web Client")
+![Data Visualization](Images/DataVisualization.png "Data Visualization")
 
-**Note:** In these cases the previous images show simulted data.
-
+There are many ways to view the data, the previous figure shows two simple html pages that display the data in real time in two different ways. 
 
 # Develop the solution on Device Side
 This section will provide implementation details relating to the development of the main components of the PoC. We will start from the development of the IoT application on the Raspberry device.
