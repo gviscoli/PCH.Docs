@@ -9,7 +9,7 @@ It is clear that over the next decade, emerging technologies will mature and pro
 
 
 # Weather Station Proof of Concept
-For purely didactic and experimental purposes, I decided to create a **IoT PoC** for a **Home Weather Station** by reusing a series of devices that had been gathering dust in my studio for too long. 
+For purely didactic and experimental **purpose**, I decided to create a **IoT PoC** for a **Home Weather Station** by reusing a series of devices that had been gathering dust in my studio for too long. 
 
 The goal of the PoC is to familiarize yourself with the **Azure Internet of Things (IoT)** and to experiment with a series of cloud technologies such as **Azure IoT Hub**, **Azure Function** and **Azure SignalR**. Also, as mentioned above, in the future, I could be extend the PoC using emerging technologies like edge computing, artificial intelligence and digital twins.
 
