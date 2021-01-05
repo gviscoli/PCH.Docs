@@ -1,3 +1,9 @@
+# Introduction
+The Internet of Things (IoT) is transforming the way people live and work. Beyond just the smart devices you use every day, IoT is revolutionizing the way companies do business allowing them to become faster, smarter, safer, and more efficient.
+
+Two out of three organizations are planning to use IoT even more in the next two years than they do today ([source](https://azure.microsoft.com/en-us/resources/iot-signals/)). As the IoT market matures, computing capabilities are increasingly being positioned at the edge. This brings processing and analysis power closer to connected data-generating devices and their users rather than handling data exclusively in the cloud or at remote data centers. Estimates show that by 2025, 75 percent of enterprise-generated data will be created and processed at the edge, up from less than 20 percent today.
+
+
 # Weather Station Proof of Concept
 This article explains the architecture of the PoC that I created for the realization of a first prototype of a home **Weather Station**.
 
@@ -266,4 +272,12 @@ And the output should look like this:
 ![TestScript](Images/TestScript.png "Output test script")
 
 
-{End}
+# Conclusions
+IoT is changing the way many companies do business, with the technology helping them become more efficient, safer, or offering new services and experiences for customers. But people are a critical part when a business starts on a digital transformation journey to adopt IoT technology.
+
+Globally and across industries, IoT continues to enable companies to become more efficient, productive, and safe. Organizations aim to use IoT to optimize their operations, but **need solutions they can maintain over time**.
+
+IoT can ultimately help businesses achieve a better customer experience, regardless of industry. However, **organizations need help** embedding IoT into their long-term strategy
+and communicating how it can positively impact performance in the workplace.
+
+In conclusion, we can say that maturing IoT skills allows you to come into contact with a series of extremely interesting emerging technologies (e.g. **Artificial Intelligence**, **Edge Computing**, and **Digital Twins**), and becomes fundamental for today's and future professionals.
