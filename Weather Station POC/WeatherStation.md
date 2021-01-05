@@ -282,3 +282,5 @@ IoT can ultimately help businesses achieve a better customer experience, regardl
 and communicating how it can positively impact performance in the workplace.
 
 In conclusion, we can say that maturing IoT skills allows you to come into contact with a series of extremely interesting emerging technologies (e.g. **Artificial Intelligence**, **Edge Computing**, and **Digital Twins**), and becomes fundamental for today's and future professionals.
+
+{end}
